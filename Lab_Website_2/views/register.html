@@ -6,19 +6,6 @@
 <html lang="en">
   <head>
 
-    <script>
-    function viewStudentStats(id, toggle) {
-      if (toggle == 0) {
-        document.getElementById(id).style.visibility = "hidden";
-        document.getElementById(id).style.height = "0";
-    }
-      else {
-        document.getElementById(id).style.visibility = "visible";
-        document.getElementById(id).style.height = "auto";
-      }
-    }
-    </script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -83,13 +70,13 @@
 				  <legend class="col-form-label col-sm-2 pt-0">CU Boulder Student</legend>
 				  <div class="col-sm-10">
 					<div class="form-check">
-					  <input class="form-check-input" onclick="viewStudentStats('student_status', 1)" type="radio" name="studentStatus" id="studentStatusYes" value="Yes" required>
+					  <input class="form-check-input" onclick="viewStudentStats('student_status', 1);" type="radio" name="studentStatus" id="studentStatusYes" value="Yes" required>
 					  <label class="form-check-label" for="studentStatusYes">
 						Yes
 					  </label>
 					</div>
 					<div class="form-check">
-					  <input class="form-check-input" onclick="viewStudentStats('student_status', 0)" type="radio" name="studentStatus" id="studentStatusNo" value="No">
+					  <input class="form-check-input" onclick="viewStudentStats('student_status', 0); viewStudentStats('grad_select', 0); viewStudentStats('undergrad_select', 0);" type="radio" name="studentStatus" id="studentStatusNo" value="No">
 					  <label class="form-check-label" for="studentStatusNo">
 						No
 					  </label>

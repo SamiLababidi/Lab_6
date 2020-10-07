@@ -1,35 +1,5 @@
 
 <!doctype html>
-<script>
-var wins = 0;
-var losses = 0;
-function loadStatsPage() {
-           var table = document.getElementById("stats_table");
-
-           for(var rowCount = 2; rowCount < table.rows.length; rowCount++) {
-               var row = table.rows[rowCount];
-
-               var BuffScore = row.cells[2].innerHTML;
-               var oppScore = row.cells[3].innerHTML;
-
-               if(BuffScore > oppScore) {
-                   row.cells[4].innerHTML += "CU Boulder";
-                   wins += 1;
-               }
-               else {
-                   row.cells[4].innerHTML += row.cells[1].innerHTML;
-                   losses += 1;
-               }
-           }
-
-           var updateWins = document.getElementById("wins");
-           updateWins.innerHTML += wins;
-
-           var updateLosses = document.getElementById("losses");
-           updateLosses.innerHTML += losses;
-
-}
-</script>
 
 <html lang="en">
   <head>

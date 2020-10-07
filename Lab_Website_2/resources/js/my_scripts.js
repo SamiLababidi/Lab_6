@@ -33,6 +33,17 @@ var players = [{name:"John Doe", img: "../resources/img/player1.jpg", alt:"Image
 					 To reveal the html tag (toggle - 1), the visibility will be set to visible and
 					 the height will be set to auto.
 */
+
+function viewStudentStats(id, toggle) {
+      if (toggle == 0) {
+        document.getElementById(id).style.visibility = "hidden";
+        document.getElementById(id).style.height = "0";
+    }
+      else {
+        document.getElementById(id).style.visibility = "visible";
+        document.getElementById(id).style.height = "auto";
+      }
+    }
 				
 /*
 	Home Page: 
@@ -43,7 +54,9 @@ var players = [{name:"John Doe", img: "../resources/img/player1.jpg", alt:"Image
 			purpose: This method will set the html body's background color to the 
 					 provided parameter.
 */
-
+function changeColor(color) {
+	document.body.style.backgroundColor = color;
+}
 
 /*
 	Football Season Stats Page:
@@ -61,7 +74,27 @@ var players = [{name:"John Doe", img: "../resources/img/player1.jpg", alt:"Image
 						
 						4. Update the second table to show the total number of wins/losses for the Buffs.
 */
+function loadStatsPage() {
+	
+	var games_table = document.getElementById("stats_table");
+	var row_counter;
+	var wins = 0;
+	var loses = 0;
 
+	for (row_counter = 2; row_counter < games_table.rows.length; row_counter++) {
+		
+		if (games_table.rows[row_counter].cells[2].innerHTML > games_table.rows[row_counter].cells[3].innerHTML) {
+			games_table.rows[row_counter].cells[4].innerHTML = "CU Boulder";
+			wins++;
+		} else {
+			games_table.rows[row_counter].cells[4].innerHTML = games_table.rows[row_counter].cells[1].innerHTML;
+			loses++;
+		}
+	}
+
+	document.getElementById("wins").innerHTML = wins;
+	document.getElementById("losses").innerHTML = loses;
+}d
 /*
 	Football Player Information Page
 		loadPlayersPage method:
