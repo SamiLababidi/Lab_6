@@ -94,7 +94,7 @@ function loadStatsPage() {
 
 	document.getElementById("wins").innerHTML = wins;
 	document.getElementById("losses").innerHTML = loses;
-}d
+}
 /*
 	Football Player Information Page
 		loadPlayersPage method:
@@ -137,5 +137,34 @@ function loadStatsPage() {
 					  avg_r_yards   - the average number of rushing yards for the player's Buff career
 					  avg_rec_yards - the average number of receiving yards for the player's Buff career
 */
+
+
+
+function loadPlayersPage() {
+
+	for (var i = 0; i < players.length; i++) {
+		var a = document.createElement('a');
+		a.setAttribute('class', 'dropdown-item');
+		a.setAttribute('href', '#');
+		a.setAttribute("onclick", "switchPlayers("+i+")");
+		a.innerText = players[i].name;
+		document.getElementById("player_selector").appendChild(a);
+	}	
+	
+}
+
+function switchPlayers(playerNum) {
+	document.getElementById("p_year").innerHTML = players[playerNum].year;
+	document.getElementById("p_major").innerHTML = players[playerNum].major;
+	document.getElementById("g_played").innerHTML = players[playerNum].games_played;
+	document.getElementById("player_img").src = players[playerNum].img;
+	document.getElementById("player_img").alt = players[playerNum].alt;
+	document.getElementById("p_yards").innerHTML = players[playerNum].pass_yards;
+	document.getElementById("r_yards").innerHTML = players[playerNum].rushing_yards;
+	document.getElementById("rec_yards").innerHTML = players[playerNum].receiving_yards;
+	document.getElementById("avg_p_yards").innerHTML = Math.floor(players[playerNum].pass_yards/players[playerNum].games_played);
+	document.getElementById("avg_r_yards").innerHTML = Math.floor(players[playerNum].rushing_yards/players[playerNum].games_played);
+	document.getElementById("avg_rec_yards").innerHTML = Math.floor(players[playerNum].receiving_yards/players[playerNum].games_played);
+}
 				
 
